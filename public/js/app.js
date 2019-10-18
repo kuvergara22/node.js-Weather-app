@@ -1,6 +1,3 @@
-console.log('js client side file');
-
-
 const weatherEventListener = document.querySelector('form');
 
 const inputElement = document.querySelector('input');
@@ -15,7 +12,7 @@ weatherEventListener.addEventListener('submit', (e) => {
     messageOne.textContent = 'Loading...'
     secondMessage.textContent = ''
     e.preventDefault();
-    fetch('http://localhost:3000/weather?address='+ inputValue +'').then( (response) => {
+    fetch('/weather?address='+ inputValue +'').then( (response) => {
     response.json().then( (data) => {
         
         if(data.error){
