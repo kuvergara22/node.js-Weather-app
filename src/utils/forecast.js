@@ -9,7 +9,8 @@ const forecastCode = (latitude, longitude, callback) => {
     } else if(response.body.currently === 0){
         callback('the request was unavailable', undefined)
     } else {
-        callback(undefined, response.body.daily.data[0].summary + ' It is currently ' + response.body.currently.temperature + ' degrees outside. ' + 'There is ' + response.body.currently.precipProbability + ' % chance of rain')
+        console.log(response.body.daily)
+        callback(undefined, response.body.daily.data[0].summary + ' It is currently ' + response.body.currently.temperature + ' degrees outside. The high is ' + response.body.daily.data[0].temperatureHigh + ' and the low is ' +  response.body.daily.data[0].temperatureLow + ' ' + ' There is ' + response.body.currently.precipProbability + ' % chance of rain')
     }
   })
 }
